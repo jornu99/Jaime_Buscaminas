@@ -3,40 +3,51 @@
         public $t;
         private $tam;
         public $modo;
-        private $moab;
+        private $mina;
 
-        public function __construct($tam, $modo){
-            $this->tam = $tam;
+        public function __construct($modo){
             $this->modo = $modo;
         }
 
-        public function eligeDificultad($modo){
+        public function __toString(){
+            return '{ Tablero: ' . $this->t . ', Tamaño: ' .$this->tam. ', Modo:' . $this->modo . ', Mina: ' . $this->mina . ' }';
+        }
+
+        public function eligeDificultad(){
             switch ($this->modo) {
                 case 1:
                     $this->tam = 5;
-                    $this->moab = 2;
+                    $this->mina = 2;
                     break;
 
                 case 2:
                     $this->tam = 10;
-                    $this->moab = 4;
+                    $this->mina = 4;
                     break;
 
                 case 3:
                     $this->tam = 20;
-                    $this->moab = 8;
+                    $this->mina = 8;
                     break;
                 
                 default:
                     $this->tam = 5;
-                    $this->moab = 2;
+                    $this->mina = 2;
                     break;
             }
         }
         
-        public function iniciarTablero($modo, $tam){
+        public function iniciarTablero(){
             for ($i=0; $i < $this->tam; $i++) { 
                 $this->t[] = '-';
+            }
+        }
+
+        public function addMinas(){
+            self::iniciarTablero();
+
+            for ($this->moab; $i < $this->tam; $i++) { 
+                
             }
         }
     }
