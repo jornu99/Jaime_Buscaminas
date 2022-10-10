@@ -46,7 +46,7 @@
         public function addMinas(){
             self::iniciarTablero();
 
-            for ($this->moab; $i < $this->tam; $i++) { 
+            for ($i=0; $i < $this->tam; $i++) { 
                 
             }
         }
