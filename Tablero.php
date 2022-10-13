@@ -47,7 +47,12 @@
             self::iniciarTablero();
 
             for ($i=0; $i < $this->tam; $i++) { 
-                
+                while ($this->mina != 0) {
+                    if($this->t[$i] != '*'){
+                        $this->t[rand(0, $this->tam - 1)] = '*';
+                    }
+                    $this->mina--;
+                }
             }
         }
     }
