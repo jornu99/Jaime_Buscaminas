@@ -55,5 +55,21 @@
                 }
             }
         }
+
+        public function pistaCasilla($pos){
+            $res = 0;
+
+            if($this->t[$pos] == '*'){
+                $res = -1;
+            }else{
+                if($this->t[$pos + 1] == '*'){
+                    $res++;
+                }
+                if($this->t[$pos - 1] == '*'){
+                    $res++;
+                }
+            }
+            return $res;
+        }
     }
 ?>
