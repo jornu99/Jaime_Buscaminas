@@ -1,5 +1,6 @@
 <?php
     include_once 'Tablero.php';
+    header("Content-Type:application/json");
 
     $requestMethod = $_SERVER['REQUEST_METHOD'];
     $paths = $_SERVER['REQUEST_URI'];
@@ -22,7 +23,36 @@
                 'dec' => 'Demasiados argumentos'
             ];
             echo json_encode($mensaje);
+        }else{
+            if(count($parametros) === 2){
+                $modo = array_shift($parametros);
+                $pos = array_shift($parametros);
+
+                $t = new Tablero($modo);
+                $
+                $t->iniciarTablero();
+                $t->addMinas();
+                $t->pistaCasilla($pos);
+            }else{
+                if(count($parametros) === 1){
+                    $modo = array_shift($parametros);
+                    $pos = array_shift($parametros);
+
+                    $t = new Tablero($modo);
+                    $tablero->iniciarTablero();
+                    $tablero->addMinas();
+                    $tablero->pistaCasilla($pos);
+                }
+            }
         }
     }
-    echo json_encode($mensaje, JSON_UNESCAPED_UNICODE);
+    //echo json_encode($mensaje, JSON_UNESCAPED_UNICODE);
+    // $t = new Tablero(3);
+    // $t->eligeDificultad();
+    // $t->iniciarTablero();
+    // //var_dump($t);
+    // //print_r ($t->t);
+    // $t->addMinas();
+    // $t->pistaCasilla();
+    // print_r ($t->t);
 ?>
